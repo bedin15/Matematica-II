@@ -1,0 +1,39 @@
+const caixaPrincipal = document.querySelector(".caixa-principal");
+const caixaPerguntas = document.querySelector(".caixa-perguntas");
+const caixaAlternativas = document.querySelector(".caixa-alternativas");
+const caixaResultado = document.querySelector(".caixa-resultado");
+const textoResultado = document.querySelector(".texto-resultado");
+
+const perguntas = [
+    {
+        enunciado: "A internet e as mídias são importantes ?",
+        alternativas: [
+            "Sim! Facilitam o nosso cotidiano, são indispensaveis em alguns trabalhos e até deram origens a novas profissões.!",
+            "Não! Sobrevivemos a mais de 1000 anos sem."
+        ]
+    },
+    {
+        enunciado: "É possivel usar a tecnologia atualde uma forma educativa?",
+        alternativas: [
+            "Não! Pois essa tecnologia é poluída e só conta com besteiras que infectam desde os mais jovens até os idosos.",
+            "Não! Pois os seres humanos não sabem usufruir dela para o bem",
+        ]
+    },
+    {
+        enunciado: "Todos os sites e redes sociais são para o bem ?",
+        alternativas: [
+            "Não, pois tem alguns criados para enganação, roubo. pedofilia, conteúdo inapropriado...",
+            "Não! A internet veio com o intuito de nos ajudar e facilitar o dia a dia, mas se não usada de forma correta pode ocasionar um grande problema com o uso de sites e redes indevidas."
+        ]
+    },
+];
+
+let atual = 0;
+let perguntaAtual;
+
+function mostraPergunta() {
+    perguntaAtual = perguntas[atual];
+    caixaPerguntas.textContent = perguntaAtual.enunciado;
+}
+
+mostraPergunta();
