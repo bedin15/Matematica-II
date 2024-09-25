@@ -13,7 +13,7 @@ const perguntas = [
         ]
     },
     {
-        enunciado: "É possivel usar a tecnologia atualde uma forma educativa?",
+        enunciado: "É possivel usar a tecnologia atual de uma forma educativa?",
         alternativas: [
             "Não! Pois essa tecnologia é poluída e só conta com besteiras que infectam desde os mais jovens até os idosos.",
             "Não! Pois os seres humanos não sabem usufruir dela para o bem",
@@ -32,8 +32,13 @@ let perguntaAtual;
 let historiaFinal = "";
 
 function mostraPergunta() {
+    if (atual >= perguntas.length) {
+        mostraResultado();
+        return;
+    }
     perguntaAtual = perguntas[atual];
     caixaPerguntas.textContent = perguntaAtual.enunciado;
+    caixaAlternativas.textContent = "";
     mostraAlternativas();
 }
 
@@ -46,11 +51,17 @@ function mostraAlternativas(){
     }
 }
 
-function respostaSelecionada(opcaoSelecionada){
-    const afirmacoes = opcaoSelecionada.afirmacoes;
-    historiaFinal = afirmacoes;
+function respostaSelecionada(opcaoSelecionada) {
+    const afirmacoes = opcaoSelecionada.afirmacao;
+    historiaFinal += afirmacoes + " ";
     atual++;
     mostraPergunta();
+}
+
+function mostraResultado() {
+    caixaPerguntas.textContent = "Em 2049...";
+    textoResultado.textContent = historiaFinal;
+    caixaAlternativas.textContent = "";
 }
 
 mostraPergunta();
